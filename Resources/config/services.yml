@@ -1,0 +1,11 @@
+webbundle.layout:
+    class: Ast\WebBundle\Lib\WebLayout
+    arguments: ["@doctrine.orm.entity_manager",'%webbundle.layoutnamespace%']
+
+webbundle.linksharesocial:
+     class: Ast\WebBundle\Lib\LinkShareSocial
+
+twig.extension.minify:
+    class: Ast\WebBundle\Twig\Extension
+    tags:
+        - { name: twig.extension }

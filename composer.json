@@ -1,0 +1,26 @@
+{
+  "name": "antoniosam/webbundle",
+  "description": "Bundle to develop web pages with Symfony 3|4",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Antonio Samano",
+      "email": "antoniost.developer@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.5.9",
+    "antoniosam/utilstring": "^1.2",
+    "wyrihaximus/html-compress":"^1.1"
+  },
+  "require-dev":{
+    "antoniosam/example-mwb": "dev-master"
+  },
+  "autoload": {
+    "psr-4" : {
+      "Ast\\WebBundle\\" : ""
+    }
+  }
+}
