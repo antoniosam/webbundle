@@ -10,7 +10,7 @@ use WyriHaximus\HtmlCompress\Factory;
  * Extension.
  *
  */
-class Extension extends \Twig_Extension
+class MinifyExtension extends \Twig_Extension
 {
     /**
      * @var array

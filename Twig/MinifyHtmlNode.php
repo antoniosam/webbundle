@@ -17,7 +17,7 @@ class MinifyHtmlNode extends Twig_Node
             ->addDebugInfo($this)
             ->write("ob_start();\n")
             ->subcompile($this->getNode('body'))
-            ->write('$extension = $this->env->getExtension(\\Ast\\WebBundle\\Twig\\Extension::class);' . "\n")
+            ->write('$extension = $this->env->getExtension(\\Ast\\WebBundle\\Twig\\MinifyExtension::class);' . "\n")
             ->write('echo $extension->minify($this->env, ob_get_clean());' . "\n");
     }
 }

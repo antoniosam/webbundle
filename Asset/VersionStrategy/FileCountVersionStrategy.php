@@ -32,8 +32,12 @@ class FileCountVersionStrategy implements VersionStrategyInterface
     public function __construct($project_dir)
     {
         $this->project_dir = $project_dir;
-        $this->filename = $project_dir.DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.'countversion.txt';
+        $this->filename = $project_dir.DIRECTORY_SEPARATOR.self::getpath();
         $this->format = '%s?v=%s';
+    }
+
+    public static function getpath(){
+        return 'app'.DIRECTORY_SEPARATOR.'countversion.txt';
     }
 
     /**

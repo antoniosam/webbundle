@@ -7,7 +7,7 @@ services:
          class: Ast\WebBundle\Lib\LinkShareSocial
 
     twig.extension.minify:
-        class: Ast\WebBundle\Twig\Extension
+        class: Ast\WebBundle\Twig\MinifyExtension
         tags:
             - { name: twig.extension }
 
