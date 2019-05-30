@@ -7,7 +7,7 @@ namespace Ast\WebBundle\Lib;
 
 use Doctrine\ORM\EntityManager;
 
-class WebLayout
+class DynamicLayout
 {
     static $TIPOLAYOUT = [
         1 => 'Texto',

@@ -1,6 +1,6 @@
 services:
-    webbundle.layout:
-        class: Ast\WebBundle\Lib\WebLayout
+    webbundle.dynamiclayout:
+        class: Ast\WebBundle\Lib\DynamicLayout
         arguments: ["@doctrine.orm.entity_manager",'%webbundle.layoutnamespace%']
 
     webbundle.linksharesocial:
@@ -10,3 +10,8 @@ services:
         class: Ast\WebBundle\Twig\Extension
         tags:
             - { name: twig.extension }
+
+    assets.empty_version_strategy:
+        class: Ast\WebBundle\Asset\VersionStrategy\FileCountVersionStrategy
+        arguments: ["%kernel.project_dir%"]
+        public: true
