@@ -10,6 +10,8 @@
 
 namespace Ast\WebBundle\Entity;
 
+use Ast\UtilString\Slugg;
+use Ast\UtilString\UniqueId;
 use Doctrine\ORM\Mapping as ORM;
 
 
@@ -138,7 +140,10 @@ class Articulo
     * @ORM\PrePersist
     */
     public function onPrePersist(){
-        $this->creado = new \DateTime("now"); 
+        $this->creado = new \DateTime("now");
+        $this->referencia = UniqueId::generate();
+        $this->slug = time().'-'.Slugg::slugify($this->titulo);
+        $this->categoriaslug = Slugg::slugify($this->categoria);
     }
 
     /**
@@ -146,7 +151,8 @@ class Articulo
     * @ORM\PreUpdate
     */
     public function onPreUpdate(){
-        $this->actualizado = new \DateTime("now"); 
+        $this->actualizado = new \DateTime("now");
+        $this->categoriaslug = Slugg::slugify($this->categoria);
     }
 
     /**

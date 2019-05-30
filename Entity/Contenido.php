@@ -10,6 +10,7 @@
 
 namespace Ast\WebBundle\Entity;
 
+use Ast\UtilString\UniqueId;
 use Doctrine\ORM\Mapping as ORM;
 
 
@@ -33,6 +34,11 @@ class Contenido
      * @ORM\Column(type="integer", nullable=true)
      */
     protected $idlista;
+
+    /**
+     * @ORM\Column(type="string", length=200, nullable=true)
+     */
+    protected $referencia;
 
     /**
      * @ORM\Column(type="string", length=200, nullable=true)
@@ -114,7 +120,8 @@ class Contenido
     * @ORM\PrePersist
     */
     public function onPrePersist(){
-        $this->creado = new \DateTime("now"); 
+        $this->creado = new \DateTime("now");
+        $this->referencia = UniqueId::generate();
     }
 
     /**
@@ -169,6 +176,29 @@ class Contenido
     public function getIdlista()
     {
         return $this->idlista;
+    }
+
+    /**
+     * Set the value of referencia.
+     *
+     * @param string $referencia
+     * @return \Ast\WebBundle\Entity\Contenido
+     */
+    public function setReferencia($referencia)
+    {
+        $this->referencia = $referencia;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of referencia.
+     *
+     * @return string
+     */
+    public function getReferencia()
+    {
+        return $this->referencia;
     }
 
     /**

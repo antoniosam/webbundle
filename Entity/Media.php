@@ -10,6 +10,7 @@
 
 namespace Ast\WebBundle\Entity;
 
+use Ast\UtilString\UniqueId;
 use Doctrine\ORM\Mapping as ORM;
 
 
@@ -119,7 +120,8 @@ class Media
     * @ORM\PrePersist
     */
     public function onPrePersist(){
-        $this->creado = new \DateTime("now"); 
+        $this->creado = new \DateTime("now");
+        $this->referencia = UniqueId::generate();
     }
 
     /**
