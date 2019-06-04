@@ -15,3 +15,9 @@ services:
         class: Ast\WebBundle\Asset\VersionStrategy\FileCountVersionStrategy
         arguments: ["%kernel.project_dir%"]
         public: true
+
+    app.listener.compression:
+        class: Ast\WebBundle\EventListener\CompressionListener
+        arguments:
+        tags:
+            - { name: kernel.event_subscriber }
